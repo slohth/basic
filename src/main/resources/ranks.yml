@@ -1,0 +1,38 @@
+admin:
+  options:
+    display: "&cAdmin"
+    prefix: "&c[ADMIN] "
+    tab-prefix: "&c[ADMIN] "
+    inherits:
+      - mod
+  permissions:
+    - "*"
+
+mod:
+  options:
+    display: "&aMod"
+    prefix: "&a[MOD] "
+    tab-prefix: "&a[MOD] "
+    inherits:
+      - trainee
+  permissions:
+    - "basic.fly"
+
+trainee:
+  options:
+    display: "&3Trainee"
+    prefix: "&3[TRAINEE] "
+    tab-prefix: "&3[TRAINEE] "
+    inherits:
+      - member
+  permissions:
+    - "basic.punish.ban"
+
+member:
+  options:
+    default: true
+    display: "&7Member"
+    prefix: "&7"
+    tab-prefix: "&7"
+  permissions:
+    - ""
