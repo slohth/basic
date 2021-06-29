@@ -1,0 +1,5 @@
+main: dev.slohth.basic.Basic
+name: Basic
+version: "DEV-1.0"
+author: Slohth
+description: Keep it simple. Lightweight and efficient server core.
