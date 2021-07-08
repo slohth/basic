@@ -1,5 +1,10 @@
 61a17967-0f69-458b-b723-b991229df329:
   ranks:
-    - admin
-  permissions:
-    - "is.fucking.awesome"
+    - owner
+  profile:
+    discord: Slohth#7514
+    socials:
+      youtube: "https://www.youtube.com/slohth"
+      twitch: "https://www.twitch.tv/slohthmc"
+      twitter: "https://www.twitter.com/slohth"
+      github: "https://www.github.com/slohth"

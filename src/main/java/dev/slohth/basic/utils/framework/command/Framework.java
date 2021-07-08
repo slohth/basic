@@ -1,5 +1,7 @@
 package dev.slohth.basic.utils.framework.command;
 
+import dev.slohth.basic.utils.CC;
+import dev.slohth.basic.utils.framework.Config;
 import org.bukkit.Bukkit;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandMap;
@@ -84,7 +86,8 @@ public class Framework implements CommandExecutor {
                 Command command = method.getAnnotation(Command.class);
 
                 if (!command.permission().equals("") && !sender.hasPermission(command.permission())) {
-                    sender.sendMessage(command.noPerm());
+                    String message = Config.MESSAGES.getString("no-permission") != null ? Config.MESSAGES.getString("no-permission") : command.noPerm();
+                    sender.sendMessage(CC.trns(message));
                     return true;
                 }
                 if (command.inGameOnly() && !(sender instanceof Player)) {

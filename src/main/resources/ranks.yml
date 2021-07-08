@@ -1,3 +1,11 @@
+owner:
+  options:
+    display: "&cOwner"
+    prefix: "&c[OWNER] "
+    tab-prefix: "&c[OWNER] "
+    inherits:
+      - admin
+
 admin:
   options:
     display: "&cAdmin"
@@ -26,7 +34,36 @@ trainee:
     inherits:
       - member
   permissions:
-    - "basic.punish.ban"
+    - "basic.glow"
+    - "basic.hide"
+
+elite+:
+  options:
+    display: "&6Elite+"
+    prefix: "&6[ELITE+] "
+    tab-prefix: "&6[ELITE+] "
+    inherits:
+      - elite
+  permissions:
+    - "basic.hide"
+
+elite:
+  options:
+    display: "&eElite"
+    prefix: "&e[ELITE] "
+    tab-prefix: "&e[ELITE] "
+    inherits:
+      - donator
+
+donator:
+  options:
+    display: "&dDonator"
+    prefix: "&d[DONATOR] "
+    tab-prefix: "&d[DONATOR] "
+    inherits:
+      - member
+  permissions:
+    - "basic.fly"
 
 member:
   options:
@@ -35,4 +72,4 @@ member:
     prefix: "&7"
     tab-prefix: "&7"
   permissions:
-    - ""
+    - "basic.profile"

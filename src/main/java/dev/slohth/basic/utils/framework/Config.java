@@ -15,7 +15,8 @@ import java.util.Set;
 public enum Config {
 
     RANKS("ranks"),
-    USERS("player-data");
+    USERS("player-data"),
+    MESSAGES("messages");
 
     private final File file;
     private final YamlConfiguration config;

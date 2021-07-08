@@ -1,0 +1,18 @@
+### CHAT SETTINGS
+chat:
+  default: "%rank_prefix%%name%&7: &a%message%"
+  # The default format for any groups not in the 'groups' category
+  hover:
+    - "&7Player: %name%"
+    - "&7Rank: %rank_name%"
+  groups:
+    owner: "%rank_prefix%%name%&7: &c%message%"
+    elite+: "%rank_prefix%%name%&7: &f%message%"
+    elite: "%rank_prefix%%name%&7: &f%message%"
+    donator: "%rank_prefix%%name%&7: &f%message%"
+    member: "&7%name%: %message%"
+
+no-permission: "&3&lERROR: &bYou do not have permission to do this!"
+
+enable-hidden: "&3&lSERVER: &bYou are now hidden!"
+disable-hidden: "&3&lSERVER: &bYou are no longer hidden!"

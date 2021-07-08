@@ -3,6 +3,8 @@ package dev.slohth.basic.rank.manager;
 import dev.slohth.basic.Basic;
 import dev.slohth.basic.rank.Rank;
 import dev.slohth.basic.utils.framework.Config;
+import org.bukkit.Bukkit;
+import org.bukkit.scoreboard.Scoreboard;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -10,7 +12,13 @@ import java.util.List;
 public class RankManager {
 
     private final Basic core;
+    private final Scoreboard scoreboard;
     private final List<Rank> registeredRanks = new ArrayList<>();
+
+    private final char[] priorityChars = new char[] {
+            '0','1','2','3','4','5','6','7','8','9',
+            'A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z',
+            'a','b','c','d','e','f','g','h','i','j','k','l','m','n','o','p','q','r','s','t','y','v','e','x','y','z' };
 
     /**
      * Class constructor - registers all ranks in the config
@@ -18,8 +26,13 @@ public class RankManager {
      */
     public RankManager(Basic core) {
         this.core = core;
+        this.scoreboard = Bukkit.getScoreboardManager().getNewScoreboard();
         for (String rank : Config.RANKS.getConfig().getConfigurationSection("").getKeys(false)) this.register(rank);
-        for (Rank rank : this.registeredRanks) try { rank.load(); } catch (NullPointerException e) { e.printStackTrace(); }
+        Bukkit.getScheduler().runTaskLater(core, () -> {
+            for (Rank rank : this.registeredRanks) {
+                try { rank.load(); } catch (NullPointerException e) { e.printStackTrace(); }
+            }
+        }, 1);
     }
 
     /**
@@ -65,5 +78,8 @@ public class RankManager {
         for (Rank rank : this.registeredRanks) if (rank.isDefault()) return rank;
         return registeredRanks.get(registeredRanks.size() - 1);
     }
+
+    public Scoreboard getScoreboard() { return this.scoreboard; }
+    public char[] getPriorityChars() { return this.priorityChars; }
 
 }
